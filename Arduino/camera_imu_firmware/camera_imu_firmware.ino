@@ -21,7 +21,6 @@
 ros::NodeHandle  nh;
 camera_imu_sync_apm::ImuTrigger g_msg_imu;
 ros::Publisher g_pub_imu("/vins/imu", &g_msg_imu);
-
 /*******************************************Setup ***********************************************************/
 void setup() {
   // Set baudrate to 1Mbps
@@ -29,7 +28,14 @@ void setup() {
   //Initialize ros nodehandle. 
   nh.initNode();
   nh.advertise(g_pub_imu);
-
+  // Wait for NodeHandle to connect:
+  while(!nh.connected()) {
+    nh.spinOnce();
+  }
+  // Camera_trigger frequency is defined in MPU6000.h
+  if (! nh.getParam("camera_trigger_frequency", &camera_trigger_frequency)) {
+    camera_trigger_frequency = 20;
+  }
   pinMode(CHIP_SELECT_PRESSURE_SENSOR,OUTPUT);
   digitalWrite(CHIP_SELECT_PRESSURE_SENSOR,HIGH);  		//Disable Pressure sensor
   pinMode(CHIP_SELECT_MPU6000,OUTPUT);

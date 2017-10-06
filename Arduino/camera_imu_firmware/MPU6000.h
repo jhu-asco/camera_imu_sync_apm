@@ -154,8 +154,6 @@
 
 // Pin where CAMERA is triggered
 #define CAMERA_TRIGGER_PIN 54
-// Divider for camera data
-#define CAMERA_TRIGGER_FREQUENCY 20
 
 // Sample rate
 #define BITS_IMU_SAMPLE_RATE 39 // The actual sample rate 8/(rate + 1)Hz if DLPF is not enabled. Otherwise 1/(rate + 1) Hz
@@ -168,6 +166,7 @@ ros::Time irq_time; // Time when the last message was received
 int irq_counter = 0; // Counter for triggering Camera
 int camera_trigger_start; // When to start triggering camera based on number of IMU messages passed
 int camera_trigger_stop; // When to stop triggering. Usually half the number of trigger start messages.
+int camera_trigger_frequency = 20;// Frequency at which to trigger camera
 
 //Sensor variables
 float ax=0.0, ay=0.0, az=0.0; // 9.80665/(2^15/4) 8192 LSB/g -max of 4g 1g=9.80665m/s2

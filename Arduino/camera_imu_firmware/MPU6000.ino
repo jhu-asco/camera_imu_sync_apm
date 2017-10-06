@@ -71,7 +71,7 @@ void MPU6000_Init(void)
     delay(1);
 
     // Set the camera trigger value based on sampling frequency. If DLPF is enabled, use 1Khz
-    camera_trigger_start = 8000/((BITS_IMU_SAMPLE_RATE + 1)*(CAMERA_TRIGGER_FREQUENCY));
+    camera_trigger_start = 8000/((BITS_IMU_SAMPLE_RATE + 1)*(camera_trigger_frequency));
     camera_trigger_stop = 0.5 * camera_trigger_start;
     
     

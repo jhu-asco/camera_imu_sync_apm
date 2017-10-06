@@ -26,3 +26,6 @@ Connect the APM board and the camera to the computer. Then run the launch file p
 ```
 roslaunch camera_imu_sync_apm imu_camera_combined.launch
 ```
+
+# Known Bugs
+Sometimes the camera does not respond when the launch file is started. The known workaround for now is to start reconfigure, and disable and re-enable `external_trigger`. This only happens occasionally so not sure what the reason is.

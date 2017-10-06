@@ -57,18 +57,17 @@ void loop()
     sei();
     g_msg_imu.header.stamp = irq_time;
     g_msg_imu.header.frame_id = "imu";
-    g_msg_imu.accel.x = gx;
-    g_msg_imu.accel.y = gy;
-    g_msg_imu.accel.z = gz;  
+    g_msg_imu.accel.x = ax;
+    g_msg_imu.accel.y = ay;
+    g_msg_imu.accel.z = az;
   
-    g_msg_imu.gyro.x = ax;
-    g_msg_imu.gyro.y = ay;
-    g_msg_imu.gyro.z = az;  
+    g_msg_imu.gyro.x = gx;
+    g_msg_imu.gyro.y = gy;
+    g_msg_imu.gyro.z = gz;
     
     g_pub_imu.publish(&g_msg_imu);
-    nh.spinOnce();
   }
-  delay(1);
+  nh.spinOnce();
 }
 
 

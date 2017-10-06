@@ -106,6 +106,7 @@ void MPU6000_Init(void)
         gyOffset_f = (gyOffset_f*i +gy)/(i+1);
         gzOffset_f = (gzOffset_f*i +gz)/(i+1);
       }
+      nh.spinOnce();
       delay(1);
     }
      gxOffset_i= int(-gxOffset_f);

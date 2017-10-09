@@ -14,6 +14,7 @@
       <param name="serial" value="$(arg camera_serial)" />
       <param name="enable_trigger" value="true"/>
       <param name="trigger_polarity" value="0"/>
+      <param name="video_mode" value="format7_mode1"/>
       <param name="use_imu_sync_timestamps" value="true"/>
 
       <!-- When unspecified, the driver will use the default framerate as given by the

@@ -5,7 +5,7 @@ Provide firmware to create a VINS sensor using an APM2.5 and a pointgrey camera.
 
 # Installation
 This package depends on the following packages:
-- pointgrey_camera_driver (Download from [here](https://github.com/ros-drivers/pointgrey_camera_driver). Also if necessary, checkout the specific [SHA used](https://github.com/ros-drivers/pointgrey_camera_driver/tree/dc6d10ad5582cfe564b0f5a41afdbd8d2fc18915))
+- pointgrey_camera_driver (Download from [here](https://github.com/jhu-asco/pointgrey_camera_driver). Also if necessary, checkout the specific [SHA used](https://github.com/jhu-asco/pointgrey_camera_driver/commit/50839d57648670dee813ef0e82ef12bc64193de5))
 - rosserial_node
 - rosserial_python
 

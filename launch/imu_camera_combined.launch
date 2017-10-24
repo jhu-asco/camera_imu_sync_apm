@@ -1,0 +1,11 @@
+<launch>
+  <arg name="port" default="/dev/ttyACM0"/>
+  <arg name="baud" default="1000000"/>
+  <arg name="camera_frequency" default="20"/>
+  <param name="camera_trigger_frequency" type="int" value="$(arg camera_frequency)"/>
+  <node pkg="rosserial_python" type="serial_node.py" name="rosserial_imu_client" args="$(arg port)">
+    <param name="baud" value="$(arg baud)"/>
+    <remap from="/vins/imu" to="/camera/camera_nodelet/imu_trigger"/>
+  </node>
+  <include file="$(find camera_imu_sync_apm)/launch/camera_external_trigger.launch"/>
+</launch>
